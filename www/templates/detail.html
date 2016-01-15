@@ -1,0 +1,20 @@
+<ion-header-bar class="bar-positive">
+	<h2 class="title">More Info</h2>
+</ion-header-bar>
+
+<ion-view>
+	<ion-content class="padding">
+		<ion-list class="list-inset">
+			<ion-item class="item-text-wrap" href="#/lumbar"
+				ng-repeat="item in modules | filter: { Module_Name: whichmodule }">
+					<img ng-src="img/{{item.Module_Name}}.jpg" alt="{{item.Module_Name}} Photo">
+      				<h2>{{item.Module_Name}}</h2>
+      				<p>{{item.Module_Description}}</p>
+
+			</ion-item>
+			<a href="#/lumbar">
+			<button class="button button-block button-positive">Get Started</button>
+			</a>
+		</ion-list>
+	</ion-content>
+</ion-view>	

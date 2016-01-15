@@ -1,12 +1,16 @@
 
-<ion-header-bar class="bar-positive">
-  <h2 class="title text-c">Get Started</h2>
-  <button class="button button-icon ion-minus-circled"
-          ng-click="data.showDelete = !data.showDelete; data.showReorder = false;"></button>
-  <button class="button button-icon ion-android-menu"
-          ng-click="data.showReorder = !data.showReorder; data.showDelete = false;"></button>
+<ion-view view-title="Get Started">
   
-</ion-header-bar>
+  <ion-nav-buttons side="primary">
+    <button class="button button-icon ion-minus-circled"
+            ng-click="data.showDelete = !data.showDelete; data.showReorder = false;">
+    </button>
+  </ion-nav-buttons>
+  <ion-nav-buttons side="secondary">
+    <button class="button button-icon ion-android-menu"
+            ng-click="data.showReorder = !data.showReorder; data.showDelete = false;">
+    </button>
+  </ion-nav-buttons>
 <div  class="bar bar-subheader item-input-inset bar-light">
     <label class="item-input-wrapper">
       <i class="icon ion-search placeholder-icon"></i>
@@ -20,7 +24,7 @@
   <ion-list show-delete="data.showDelete" show-reorder="data.showReorder">
     <ion-item ng-repeat='item in modules | filter: query'
      class="item-thumbnail-left item-text-wrap item-icon-right"
-     ng-class="{'star': item.star}">
+     ng-class="{'star': item.star}" href="#/tab/moduleDescription/{{item.Module_Name}}">
       <img ng-src="img/{{item.Module_Name}}.jpg" alt="{{item.Module_Name}} Photo">
       <h2>{{item.Module_Name}}</h2>
       <p>{{item.Module_Description | limitTo: 125}}{{item.Module_Description.length > 125 ? '&hellip;' : ''}}</p>
@@ -37,4 +41,4 @@
     </ion-item>
   </ion-list>
 </ion-content>
-      
+</ion-view>   

@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('starter', ['ionic'])
+angular.module('starter', ['ionic', 'app.controllers', 'app.routes'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -23,65 +23,9 @@ angular.module('starter', ['ionic'])
   });
 })
 
-.config(function($ionicConfigProvider, $urlRouterProvider, $stateProvider) {
-    $ionicConfigProvider.tabs.position('bottom');//pushes toolbar on andriod to bottom of screen
-    $stateProvider
-      .state('tabs', {
-        url: '/tab',
-        abstract: true,
-        templateUrl: 'templates/tabs.html'
-      }) //tabs
-      .state('tabs.moduleDescription',{
-        url: '/moduleDescription',
-        views: {
-          'moduleDescription-tab' : {
-            templateUrl: 'templates/moduleDescription.html',
-            controller: 'moduleSelectionController'
-          }
-        }
-      })
-      .state('tabs.home',{
-        url: '/home',
-        views: {
-          'home-tab' : {
-            templateUrl: 'templates/home.html'
-          }
-        }
-      })
-      $urlRouterProvider.otherwise('/tab/home');
-}) 
 
-.controller('moduleSelectionController', ['$scope', '$http', '$state',
-  function($scope, $http, $state) {
-    $http.get('js/moduleDescription.json').success(function (data)
-    {
-      $scope.modules = data;
 
-      $scope.doRefresh = function () {
-        $http.get('js/moduleDescription.json').success(function (data) {
-            $scope.modules = data;
-            $scope.$broadcast('scroll.refreshComplete');
-        });
-      }
 
-      $scope.moveItem = function(item, fromIndex, toIndex) {
-        $scope.modules.splice(fromIndex, 1);
-        $scope.modules.splice(toIndex, 0, item);
-      }
-
-      $scope.onItemDelete = function(item) {
-        $scope.modules.splice($scope.modules.indexOf(item), 1);
-      }
-
-      $scope.toggleStar = function(item) {
-      item.star = !item.star;
-    }
-
-    });
-
-    
-
-}]); //module Selection controller
 
 
 
