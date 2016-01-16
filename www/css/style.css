@@ -73,6 +73,17 @@ body {
 
 /*lumbar module*/
 
+.progress.active { margin: 0px; top: 0px; text-align: center;}
+i.progressCheck{
+    font-size: 2em;
+    opacity: 0.25;
+    padding: 0px 5px;
+}
+i.progressCheck.on {opacity: 1;}
+i.progressCheck.on.answered {color: green;}
+
+.progress.inactive { display: none; }
+
 #lumbar {
    font-size: 16px; font-weight: 400;
    background-color: #D0D0D0;
@@ -80,6 +91,30 @@ body {
 #lumbar h2 {
   font-size: 2em;
 }
+
+#lumbar .intro {
+  position: absolute;
+  width: 100%;
+}
+
+#lumbar .active, #lumbar .inactive {
+  transition: left 1.5s ease-in-out;
+
+}
+
+#lumbar .active { left: 1px; }
+
+#lumbar .intro.inactive { left: -3000px; }
+
+#lumbar .question { position: absolute; left: 1000px;}
+
+#lumbar .question.active, #lumbar .question.inactive {
+  transition: left 1s ease-in-out;
+}
+
+#lumbar .question.active { left: 0px; width: 100%; padding: 30px 10px;}
+
+
 
 
 
