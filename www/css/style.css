@@ -89,7 +89,7 @@ i.progressCheck.on.answered {color: green;}
    background-color: #D0D0D0;
 }
 #lumbar h2 {
-  font-size: 2em;
+  font-size: 1.5em;
 }
 
 #lumbar .intro {
@@ -102,17 +102,24 @@ i.progressCheck.on.answered {color: green;}
 
 }
 
-#lumbar .active { left: 1px; }
+#lumbar .active { left: 1px;}
 
-#lumbar .intro.inactive { left: -3000px; }
+#lumbar .intro.inactive, #lumbar.inactive.answered { left: -9000px; }
 
-#lumbar .question { position: absolute; left: 1000px;}
+#lumbar .question { position: absolute; left: 9000px;}
 
-#lumbar .question.active, #lumbar .question.inactive {
-  transition: left 1s ease-in-out;
+#lumbar .question.active  {
+  transition: left 0.5s ease-in-out;
+  left: 0px; width: 100%; padding: 30px 10px;
 }
 
-#lumbar .question.active { left: 0px; width: 100%; padding: 30px 10px;}
+#lumbar .question.inactive {
+  transition: right 0.5s ease-in-out;
+}
+
+button.cont {
+  margin-top: 15px;
+}
 
 
 

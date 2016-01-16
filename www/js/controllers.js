@@ -32,15 +32,31 @@ angular.module('app.controllers', [])
 
     
 
-}]) //module Selection controller
+}]) // end module Selection controller
 
 .controller('lumbarController', ['$scope', '$http',
   function($scope, $http) {
 
     $scope.activeQuestion = -1;
 
+    $scope.selections = {
+      choice: ""
+    };
+
     $http.get('js/questions.json').success(function (data){
 
       $scope.questions = data;
     });
+
+    $scope.selectContinue = function() {
+      return $scope.activeQuestion += 1;
+    }
+
+    
+
+
+
+
 }])
+
+

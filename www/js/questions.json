@@ -10,7 +10,8 @@
             { "id" : 3, "text" : "12-52 Weeks" },
             { "id" : 3, "text" : "Greater Than One Year" }
         ],
-        "image" : "templates/time.jpg"
+        "image" : "templates/time.jpg",
+        "title" : "Duration of Condition"
     },
     {
 		"question" : "How intense have the symptoms been in the last 2-3 days? (pain, stiffness, numbness, tingling, etc.)",
@@ -21,7 +22,8 @@
 			{"id"  : 3, "text" : "Severe"},
 			{"id"  : 4, "text" : "Unsure"}
 		],
-		"image" : "templates/time.jpg"
+		"image" : "templates/time.jpg",
+        "title" : "Intensity of Symptoms"
 	},
 	{
 		"question" : "Please rate your ability to perform normal daily activities over the last 2-3 days.",
@@ -32,7 +34,8 @@
 			{"id"  : 3, "text" : "Severly Impaired"},
 			{"id"  : 4, "text" : "Unsure"}
 		],
-		"image" : "templates/time.jpg"
+		"image" : "templates/time.jpg",
+        "title" : "Functional Capacity"
 	},
 	{
 		"question" : "What was the cause of your problem?",
@@ -42,7 +45,8 @@
 			{"id"  : 2, "text" : "Surgery"},
 			{"id"  : 3, "text" : "Other"}
 		],
-		"image" : "templates/time.jpg"
+		"image" : "templates/time.jpg",
+        "title" : "Mechanism of Injury"
 		
 	},
 	{
@@ -52,9 +56,9 @@
 			{"id"  : 1, "text" : "Come and go"},
 			{"id"  : 2, "text" : "Unsure"}
 
-
 		],
-		"image" : "templates/time.jpg"
+		"image" : "templates/time.jpg",
+        "title" : "Symptom Behavior"
 	},
 	{
 		"question" : "Do your symptoms disturb your sleep?",
@@ -65,7 +69,8 @@
 
 			
 		],
-		"image" : "templates/time.jpg"
+		"image" : "templates/time.jpg",
+        "title" : "Sleeping Distrubances"
 	},
 	{
 		"question" : "Do your symptoms improve as you walk further and further?",
@@ -76,7 +81,8 @@
 
 			
 		],
-		"image" : "templates/time.jpg"
+		"image" : "templates/time.jpg",
+        "title" : "Response to Walking"
 	},
 	{
 		"question" : "Do you at times have extreme difficulty rising out of a chair/bed due to pain/stiffness?",
@@ -87,7 +93,8 @@
 
 			
 		],
-		"image" : "templates/time.jpg"
+		"image" : "templates/time.jpg",
+        "title" : "Changing Body Position"
 	}
       
 ]
