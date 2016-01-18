@@ -95,6 +95,19 @@
 		],
 		"image" : "templates/time.jpg",
         "title" : "Changing Body Position"
+	},
+	{
+		"question" : "Are your symptoms central or more on one side?",
+		"answer"  : [
+			{"id"  : 0, "text" : "Central"},
+			{"id"  : 1, "text" : "More to the Right Side"},
+			{"id"  : 2, "text" : "More to the Left Side"},
+			{"id"  : 3, "text" : "Unsure"}
+
+			
+		],
+		"image" : "templates/time.jpg",
+        "title" : "Symptom Pattern"
 	}
       
 ]

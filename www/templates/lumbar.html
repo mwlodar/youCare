@@ -1,14 +1,14 @@
+
 <ion-view title="Low Back/Sciatica Module" hide-nav-bar="true">
 	<div class="bar bar-header bar-positive">
 		<h1 class="title">Low Back and Sciatica Module</h1>
 	</div>
 	
-    <ion-content id="lumbar"  padding="true" class="has-header"> 
+    <ion-content id="lumbar"  padding="true" class="has-header" > 
 
 		<!-- Progress Div -->
 
 	    <div  class="progress bar bar-subheader bar-light {{ (activeQuestion > -1) ? 'active' : 'inactive' }}">
-    
       		<i  class="progressCheck icon ion-checkmark-circled {{ $index === activeQuestion ? 'on' : 'off' }}" 
       	 		ng-repeat="question in questions"></i>
     	</div>
@@ -22,12 +22,12 @@
 		    <h2>Condition History</h2>
 		  </div>
 
-		  <div class="item item-body">
+		  <div class="item item-body item-text-wrap">
 		    <img class="full-image" src="../img/splashpagebackground.jpg">
 		    <p>
 		      We will now take you through a self-guided assessment process to help us determine how best to treat your condition.  We will begin by asking you a few questions about your condition. 
 		    </p>
-		    <button class="button button-positive" ng-click="selectContinue()">Begin</button>
+		    <button class="button button-positive" ng-click="selectContinue(); scrollTop()">Begin</button>
 		  </div>
 
 		</div>
@@ -35,9 +35,9 @@
 		<div class="list card question 
 					{{ $index === activeQuestion ? 'active' : 'inactive'}}"
 			 ng-repeat="question in questions">
-
-		 <div class="item item-avatar">
-		    <img src="{{question.image}}">
+			
+		 <div class="item item-avatar item-text-wrap">
+		    <img ng-src="{{question.image}}">
 		    <h2>{{question.title}}</h2>
 		  </div>
 
@@ -46,7 +46,7 @@
 		    <p>{{question.question}}</p>
 
 			<ion-list>
-			  <ion-radio class="ans"
+			  <ion-radio class="ans item-text-wrap"
 			  		ng-repeat="Answer in questions[$index].answer" 
 			  		ng-model="selections.choice[$parent.$index]" 
 			  		ng-value="Answer.text">{{Answer.text}}
@@ -54,20 +54,23 @@
 			  
 				<button class="button button-positive cont"
 		    		ng-disabled="!selections.choice[$index]"
-		    		ng-click="selectContinue()">Continue</button>
+		    		ng-click="selectContinue(); scrollTop()" >Continue</button>
+				
+			</ion-list>	
 
-			</ion-list>
-			
-		    
-		  </div>
-			
+		  </div>			
 		</div>
-
-
-
-
+		<div class='transition' ng-hide="hideTransition()">
+		<img class="full-image" src="../img/splashpagebackground.jpg">
+				<a href="#/lumbarassessment">
+					<button class="button button-block button-positive"
+							>Continue to Assessment</button>
+				</a>
+				</div>	
+		
     </ion-content>
+
     <ion-footer-bar class="bar bar-positive">
-        <div class="title">&#169;2015 You Care Mobile, {{activeQuestion}}, {{selections.choice}}</div>
+        <div class="title">&#169;2016 YouCare Mobile</div>
     </ion-footer-bar>
 </ion-view>

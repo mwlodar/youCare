@@ -1,0 +1,42 @@
+<ion-view title="Low Back/Sciatica Assessment" hide-nav-bar="true">
+	<div class="bar bar-header bar-positive">
+		<h1 class="title">Low Back and Sciatica Assessment</h1>
+	</div>
+	<ion-content id="lumbarAssessment" padding="true">
+    <ion-list>
+        <div class="card">
+            <ion-item>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/wyVM1evRxNw"></iframe>
+                </div>
+            </ion-item>
+        </div>
+		<div>
+			<button class="button button-block button-positive">Continue to Assessment</button>
+				
+		</div>	
+
+    </ion-list>
+	<div>
+	
+	<ion-checkbox ng-model="centValues[0]" ng-true-value = 1 ng-false-value = 0>Low Back</ion-checkbox>
+	<ion-checkbox ng-model="centValues[1]" ng-true-value = 2 ng-false-value = 0>Buttock</ion-checkbox>
+	<ion-checkbox ng-model="centValues[2]" ng-true-value = 3 ng-false-value = 0>Hip/Groin</ion-checkbox>
+	<ion-checkbox ng-model="centValues[3]" ng-true-value = 4 ng-false-value = 0>Thigh/Knee</ion-checkbox>
+	<ion-checkbox ng-model="centValues[4]" ng-true-value = 5 ng-false-value = 0>Lower Leg</ion-checkbox>
+	<ion-checkbox ng-model="centValues[5]" ng-true-value = 6 ng-false-value = 0>Ankle/Foot</ion-checkbox>
+
+	<div>
+		<button class="button button-block button-positive" ng-click="preCentralization()">Score</button>
+	</div>
+	</div>
+
+    
+
+
+</ion-content>
+
+<ion-footer-bar class="bar bar-positive">
+        <div class="title">&#169;2016 YouCare Mobile, {{centValues}}, {{sum}}, {{selectedAll}}</div>
+    </ion-footer-bar>
+</ion-view>

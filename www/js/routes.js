@@ -44,6 +44,12 @@ angular.module('app.routes', [])
         templateUrl: 'templates/lumbar.html',
         controller: 'lumbarController'
           })
+
+      .state('lumbarassessment',{
+        url: '/lumbarassessment',
+        templateUrl: 'templates/lumbarAssessment.html',
+        controller: 'lumbarAssessmentController'
+          })
         
   
       $urlRouterProvider.otherwise('/tab/home');

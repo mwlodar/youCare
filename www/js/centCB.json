@@ -1,0 +1,8 @@
+[
+    {"id": "1", "text":"Low Back", "model":"centValues0", "checked": 1},
+    {"id": "2", "text":"Buttock", "model":"centValues1", "checked": 2},
+    {"id": "3", "text":"Hip/Groin", "model":"centValues2", "checked": 3},
+    {"id": "4", "text":"Thigh/Knee", "model":"centValues3", "checked": 4},
+    {"id": "5", "text":"Lower Leg", "model":"centValues4", "checked": 5},
+    {"id": "6", "text":"Ankle/Foot", "model":"centValues5", "checked": 6}
+  ]
