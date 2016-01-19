@@ -50,6 +50,8 @@ body {
   border-color:  #417D9A;
 }
 
+
+
 .item-thumbnail-left img {
   border-radius: 20px;
 }
@@ -88,11 +90,11 @@ body {
    font-size: 16px; font-weight: 400;
    background-color: #D0D0D0;
 }
-#lumbar h2 {
+ #lumbar h2 {
   font-size: 1.5em;
 }
 
-#lumbar p {
+ #lumbar p {
   font-size: 1.1em;
 }
 
@@ -135,6 +137,14 @@ body {
 
 /*Lumbar Assessment View*/
 
+ #lumbarAssessment h2 {
+  font-size: 1.5em;
+}
+
+ #lumbarAssessment p {
+  font-size: 1.1em;
+}
+
 #lumbarAssessment {
   background-color: #D0D0D0;
 }
@@ -144,6 +154,7 @@ body {
     padding-bottom: 56.25%;
     padding-top: 30px; height: 0; overflow: hidden;
     margin-top: 10px;
+    margin-bottom: 15px;
 }
  
 #lumbarAssessment .video-container iframe, .video-container object, .video-container embed {

@@ -79,11 +79,23 @@ angular.module('app.controllers', [])
 
   $scope.centValues = [0,0,0,0,0,0];
   $scope.sum = 0;
+  $scope.isChecked = {
+       value : false
+     };
 
 
   $scope.uncheckAll = function() {
-    $scope.centValues.values = [];
+    $scope.centValues = [];
+  $scope.centValues = [0,0,0,0,0,0];
+
   };
+
+  $scope.uncheckNone = function() {
+    $scope.isChecked.value = false;
+
+  };
+
+
 
   $scope.preCentralization = function() {
     

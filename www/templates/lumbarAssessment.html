@@ -2,41 +2,140 @@
 	<div class="bar bar-header bar-positive">
 		<h1 class="title">Low Back and Sciatica Assessment</h1>
 	</div>
-	<ion-content id="lumbarAssessment" padding="true">
+<ion-content id="lumbarAssessment" padding="true">
+	<!-- Into View -->
     <ion-list>
         <div class="card">
             <ion-item>
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/wyVM1evRxNw"></iframe>
                 </div>
-            </ion-item>
-        </div>
-		<div>
+                <div>
 			<button class="button button-block button-positive">Continue to Assessment</button>
 				
 		</div>	
-
+            </ion-item>
+        </div>
+		
     </ion-list>
-	<div>
-	
-	<ion-checkbox ng-model="centValues[0]" ng-true-value = 1 ng-false-value = 0>Low Back</ion-checkbox>
-	<ion-checkbox ng-model="centValues[1]" ng-true-value = 2 ng-false-value = 0>Buttock</ion-checkbox>
-	<ion-checkbox ng-model="centValues[2]" ng-true-value = 3 ng-false-value = 0>Hip/Groin</ion-checkbox>
-	<ion-checkbox ng-model="centValues[3]" ng-true-value = 4 ng-false-value = 0>Thigh/Knee</ion-checkbox>
-	<ion-checkbox ng-model="centValues[4]" ng-true-value = 5 ng-false-value = 0>Lower Leg</ion-checkbox>
-	<ion-checkbox ng-model="centValues[5]" ng-true-value = 6 ng-false-value = 0>Ankle/Foot</ion-checkbox>
+    <!-- Body Area I View -->
 
-	<div>
-		<button class="button button-block button-positive" ng-click="preCentralization()">Score</button>
-	</div>
+	<div class="list card">
+
+		 <div class="item item-avatar">
+		    <img src="templates/sciatica.jpg">
+		    <h2>Symptom Location</h2>
+		  </div>
+
+		  <div class="item item-body item-text-wrap">
+		  <img class="full-image" src="templates/centralization.jpg">
+		    <p>
+		      Please indicate where you are feeling symptoms RIGHT NOW in the standing position.
+		    </p>
+		    
+		  </div>
+		<div>
+			<ion-checkbox ng-model="isChecked.value" ng-change="uncheckAll()">None</ion-checkbox>
+			<ion-checkbox ng-model="centValues[0]" ng-true-value = 1 ng-false-value = 0 ng-click="uncheckNone()">Low Back</ion-checkbox>
+			<ion-checkbox ng-model="centValues[1]" ng-true-value = 2 ng-false-value = 0 ng-click="uncheckNone()">Buttock</ion-checkbox>
+			<ion-checkbox ng-model="centValues[2]" ng-true-value = 3 ng-false-value = 0 ng-click="uncheckNone()">Hip/Groin</ion-checkbox>
+			<ion-checkbox ng-model="centValues[3]" ng-true-value = 4 ng-false-value = 0 ng-click="uncheckNone()">Thigh/Knee</ion-checkbox>
+			<ion-checkbox ng-model="centValues[4]" ng-true-value = 5 ng-false-value = 0 ng-click="uncheckNone()">Lower Leg</ion-checkbox>
+			<ion-checkbox ng-model="centValues[5]" ng-true-value = 6 ng-false-value = 0 ng-click="uncheckNone()">Ankle/Foot</ion-checkbox>
+		<div>
+			<button class="button button-block button-positive" ng-click="preCentralization()">Continue</button>
+		</div>
+		</div>
 	</div>
 
-    
+	<!-- Movement Video -->
+
+	<div class="list card" >
+
+	 	<div class="item item-avatar item-text-wrap">
+	    	<img src="templates/sciatica.jpg">
+	    	<h2>Movement Assessment Instructions</h2>
+	  	</div>
+		<ion-item class="item-text-wrap">
+	  		<div class="video-container">
+        		<iframe src="https://www.youtube.com/embed/wyVM1evRxNw"></iframe>
+	  		</div>
+			
+	  		<p>
+		      Please indicate what effect this movement is having on your symptoms as you do more and more.
+		    </p>
+			
+		 	<ion-list>
+			  <ion-radio ng-model="choice" ng-value="'A'">They are getting BETTER</ion-radio>
+			  <ion-radio ng-model="choice" ng-value="'B'">They are getting WORSE</ion-radio>
+			  <ion-radio ng-model="choice" ng-value="'C'">They are staying the SAME</ion-radio>
+			</ion-list>
+			<button class="button button-positive"
+		    		ng-disabled="!selections.choice[$index]"
+		    		ng-click="" >Continue</button>
+		</ion-item>
+	</div>
+
+	<!-- Body Area II View -->
+
+	<div class="list card">
+
+		 <div class="item item-avatar">
+		    <img src="templates/sciatica.jpg">
+		    <h2>Symptom Location</h2>
+		  </div>
+
+		  <div class="item item-body item-text-wrap">
+		  <img class="full-image" src="templates/centralization.jpg">
+		    <p>
+		      Has the location of your symptoms changed after performing this movement?  Please indicate where you are currently feeling symptoms in the standing positions.
+		    </p>
+		    
+		  </div>
+		<div>
+			<ion-checkbox ng-model="isChecked.value" ng-change="uncheckAll()">None</ion-checkbox>
+			<ion-checkbox ng-model="centValues[0]" ng-true-value = 1 ng-false-value = 0 ng-click="uncheckNone()">Low Back</ion-checkbox>
+			<ion-checkbox ng-model="centValues[1]" ng-true-value = 2 ng-false-value = 0 ng-click="uncheckNone()">Buttock</ion-checkbox>
+			<ion-checkbox ng-model="centValues[2]" ng-true-value = 3 ng-false-value = 0 ng-click="uncheckNone()">Hip/Groin</ion-checkbox>
+			<ion-checkbox ng-model="centValues[3]" ng-true-value = 4 ng-false-value = 0 ng-click="uncheckNone()">Thigh/Knee</ion-checkbox>
+			<ion-checkbox ng-model="centValues[4]" ng-true-value = 5 ng-false-value = 0 ng-click="uncheckNone()">Lower Leg</ion-checkbox>
+			<ion-checkbox ng-model="centValues[5]" ng-true-value = 6 ng-false-value = 0 ng-click="uncheckNone()">Ankle/Foot</ion-checkbox>
+		<div>
+			<button class="button button-block button-positive" ng-click="preCentralization()">Continue</button>
+		</div>
+		</div>
+	</div>
+
+	<!-- Symptom Intensity Change -->
+
+	<div class="list card" >
+
+	 	<div class="item item-avatar item-text-wrap">
+	    	<img src="templates/sciatica.jpg">
+	    	<h2>Symptom Intensity</h2>
+	  	</div>
+		<ion-item class="item-text-wrap">
+	  		
+			
+	  		<p>
+		      Has this movement changed the overall intensity of your symptoms?
+		    </p>
+			
+		 	<ion-list>
+			  <ion-radio ng-model="choice" ng-value="'A'">Yes, they are much BETTER</ion-radio>
+			  <ion-radio ng-model="choice" ng-value="'B'">Yes, they are much Worse</ion-radio>
+			  <ion-radio ng-model="choice" ng-value="'C'">No, they are about the SAME</ion-radio>
+			</ion-list>
+			<button class="button button-positive"
+		    		ng-disabled="!selections.choice[$index]"
+		    		ng-click="" >Continue</button>
+		</ion-item>
+	</div>
 
 
 </ion-content>
 
 <ion-footer-bar class="bar bar-positive">
-        <div class="title">&#169;2016 YouCare Mobile, {{centValues}}, {{sum}}, {{selectedAll}}</div>
+        <div class="title">&#169;2016 YouCare Mobile, {{centValues}}, {{sum}}, {{isChecked.value}}</div>
     </ion-footer-bar>
 </ion-view>
