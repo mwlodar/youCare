@@ -3,15 +3,15 @@
 		<h1 class="title">Low Back and Sciatica Assessment</h1>
 	</div>
 <ion-content id="lumbarAssessment" padding="true">
-	<!-- Into View -->
-    <ion-list>
+	<!-- Intro View -->
+    <ion-list class="intro" ng-hide="activeSection > 0">
         <div class="card">
             <ion-item>
                 <div class="video-container">
                     <iframe src="https://www.youtube.com/embed/wyVM1evRxNw"></iframe>
                 </div>
                 <div>
-			<button class="button button-block button-positive">Continue to Assessment</button>
+			<button class="button button-block button-positive" ng-click="nextView();scrollTop();">Continue to Assessment</button>
 				
 		</div>	
             </ion-item>
@@ -20,10 +20,10 @@
     </ion-list>
     <!-- Body Area I View -->
 
-	<div class="list card">
+	<div class="list card bodyAreaOne {{ (activeSection === 1) ? 'active' : 'inactive' }}">
 
 		 <div class="item item-avatar">
-		    <img src="templates/sciatica.jpg">
+		    <img ng-src="templates/Sciatica.jpg">
 		    <h2>Symptom Location</h2>
 		  </div>
 
@@ -35,25 +35,25 @@
 		    
 		  </div>
 		<div>
-			<ion-checkbox ng-model="isChecked.value" ng-change="uncheckAll()">None</ion-checkbox>
-			<ion-checkbox ng-model="centValues[0]" ng-true-value = 1 ng-false-value = 0 ng-click="uncheckNone()">Low Back</ion-checkbox>
-			<ion-checkbox ng-model="centValues[1]" ng-true-value = 2 ng-false-value = 0 ng-click="uncheckNone()">Buttock</ion-checkbox>
-			<ion-checkbox ng-model="centValues[2]" ng-true-value = 3 ng-false-value = 0 ng-click="uncheckNone()">Hip/Groin</ion-checkbox>
-			<ion-checkbox ng-model="centValues[3]" ng-true-value = 4 ng-false-value = 0 ng-click="uncheckNone()">Thigh/Knee</ion-checkbox>
-			<ion-checkbox ng-model="centValues[4]" ng-true-value = 5 ng-false-value = 0 ng-click="uncheckNone()">Lower Leg</ion-checkbox>
-			<ion-checkbox ng-model="centValues[5]" ng-true-value = 6 ng-false-value = 0 ng-click="uncheckNone()">Ankle/Foot</ion-checkbox>
+			<ion-checkbox ng-model="isChecked.valueOne" ng-change="uncheckAll();preCentralization();">None</ion-checkbox>
+			<ion-checkbox ng-model="centValues[0]" ng-true-value = 1 ng-false-value = 0 ng-click="uncheckNone();preCentralization();">Low Back</ion-checkbox>
+			<ion-checkbox ng-model="centValues[1]" ng-true-value = 2 ng-false-value = 0 ng-click="uncheckNone();preCentralization();">Buttock</ion-checkbox>
+			<ion-checkbox ng-model="centValues[2]" ng-true-value = 3 ng-false-value = 0 ng-click="uncheckNone();preCentralization();">Hip/Groin</ion-checkbox>
+			<ion-checkbox ng-model="centValues[3]" ng-true-value = 4 ng-false-value = 0 ng-click="uncheckNone();preCentralization();">Thigh/Knee</ion-checkbox>
+			<ion-checkbox ng-model="centValues[4]" ng-true-value = 5 ng-false-value = 0 ng-click="uncheckNone();preCentralization();">Lower Leg</ion-checkbox>
+			<ion-checkbox ng-model="centValues[5]" ng-true-value = 6 ng-false-value = 0 ng-click="uncheckNone();preCentralization();">Ankle/Foot</ion-checkbox>
 		<div>
-			<button class="button button-block button-positive" ng-click="preCentralization()">Continue</button>
+			<button class="button button-block button-positive" ng-click=" nextView();preCentralization();scrollTop();" ng-disabled="preCentSum === 0 && isChecked.valueOne === false">Continue</button>
 		</div>
 		</div>
 	</div>
 
 	<!-- Movement Video -->
 
-	<div class="list card" >
+	<div class="list card movementAssessment {{ (activeSection === 2) ? 'active' : 'inactive' }}" >
 
 	 	<div class="item item-avatar item-text-wrap">
-	    	<img src="templates/sciatica.jpg">
+	    	<img ng-src="templates/Sciatica.jpg">
 	    	<h2>Movement Assessment Instructions</h2>
 	  	</div>
 		<ion-item class="item-text-wrap">
@@ -66,22 +66,22 @@
 		    </p>
 			
 		 	<ion-list>
-			  <ion-radio ng-model="choice" ng-value="'A'">They are getting BETTER</ion-radio>
-			  <ion-radio ng-model="choice" ng-value="'B'">They are getting WORSE</ion-radio>
-			  <ion-radio ng-model="choice" ng-value="'C'">They are staying the SAME</ion-radio>
+			  <ion-radio ng-model="choice.mechChoice" ng-value="'Better'">They are getting BETTER</ion-radio>
+			  <ion-radio ng-model="choice.mechChoice" ng-value="'Worse'">They are getting WORSE</ion-radio>
+			  <ion-radio ng-model="choice.mechChoice" ng-value="'Same'">They are staying the SAME</ion-radio>
 			</ion-list>
 			<button class="button button-positive"
-		    		ng-disabled="!selections.choice[$index]"
-		    		ng-click="" >Continue</button>
+		    		ng-disabled="!choice.mechChoice"
+		    		ng-click="nextView();scrollTop();" >Continue</button>
 		</ion-item>
 	</div>
 
 	<!-- Body Area II View -->
 
-	<div class="list card">
+	<div class="list card bodyAreaTwo {{ (activeSection === 3) ? 'active' : 'inactive' }}">
 
 		 <div class="item item-avatar">
-		    <img src="templates/sciatica.jpg">
+		    <img ng-src="templates/Sciatica.jpg">
 		    <h2>Symptom Location</h2>
 		  </div>
 
@@ -93,25 +93,25 @@
 		    
 		  </div>
 		<div>
-			<ion-checkbox ng-model="isChecked.value" ng-change="uncheckAll()">None</ion-checkbox>
-			<ion-checkbox ng-model="centValues[0]" ng-true-value = 1 ng-false-value = 0 ng-click="uncheckNone()">Low Back</ion-checkbox>
-			<ion-checkbox ng-model="centValues[1]" ng-true-value = 2 ng-false-value = 0 ng-click="uncheckNone()">Buttock</ion-checkbox>
-			<ion-checkbox ng-model="centValues[2]" ng-true-value = 3 ng-false-value = 0 ng-click="uncheckNone()">Hip/Groin</ion-checkbox>
-			<ion-checkbox ng-model="centValues[3]" ng-true-value = 4 ng-false-value = 0 ng-click="uncheckNone()">Thigh/Knee</ion-checkbox>
-			<ion-checkbox ng-model="centValues[4]" ng-true-value = 5 ng-false-value = 0 ng-click="uncheckNone()">Lower Leg</ion-checkbox>
-			<ion-checkbox ng-model="centValues[5]" ng-true-value = 6 ng-false-value = 0 ng-click="uncheckNone()">Ankle/Foot</ion-checkbox>
+			<ion-checkbox ng-model="isChecked.valueTwo" ng-change="uncheckAllTwo();postCentralization()">None</ion-checkbox>
+			<ion-checkbox ng-model="postCentValues[0]" ng-true-value = 1 ng-false-value = 0 ng-click="uncheckNoneTwo();postCentralization()">Low Back</ion-checkbox>
+			<ion-checkbox ng-model="postCentValues[1]" ng-true-value = 2 ng-false-value = 0 ng-click="uncheckNoneTwo();postCentralization()">Buttock</ion-checkbox>
+			<ion-checkbox ng-model="postCentValues[2]" ng-true-value = 3 ng-false-value = 0 ng-click="uncheckNoneTwo();postCentralization()">Hip/Groin</ion-checkbox>
+			<ion-checkbox ng-model="postCentValues[3]" ng-true-value = 4 ng-false-value = 0 ng-click="uncheckNoneTwo();postCentralization()">Thigh/Knee</ion-checkbox>
+			<ion-checkbox ng-model="postCentValues[4]" ng-true-value = 5 ng-false-value = 0 ng-click="uncheckNoneTwo();postCentralization()">Lower Leg</ion-checkbox>
+			<ion-checkbox ng-model="postCentValues[5]" ng-true-value = 6 ng-false-value = 0 ng-click="uncheckNoneTwo();postCentralization()">Ankle/Foot</ion-checkbox>
 		<div>
-			<button class="button button-block button-positive" ng-click="preCentralization()">Continue</button>
+			<button class="button button-block button-positive" ng-click="postCentralization();nextView();scrollTop();" ng-disabled="postCentSum === 0 && isChecked.valueTwo === false">Continue</button>
 		</div>
 		</div>
 	</div>
 
 	<!-- Symptom Intensity Change -->
 
-	<div class="list card" >
+	<div class="list card symptomChange {{ (activeSection === 4) ? 'active' : 'inactive' }}" >
 
 	 	<div class="item item-avatar item-text-wrap">
-	    	<img src="templates/sciatica.jpg">
+	    	<img ng-src="templates/Sciatica.jpg">
 	    	<h2>Symptom Intensity</h2>
 	  	</div>
 		<ion-item class="item-text-wrap">
@@ -122,20 +122,38 @@
 		    </p>
 			
 		 	<ion-list>
-			  <ion-radio ng-model="choice" ng-value="'A'">Yes, they are much BETTER</ion-radio>
-			  <ion-radio ng-model="choice" ng-value="'B'">Yes, they are much Worse</ion-radio>
-			  <ion-radio ng-model="choice" ng-value="'C'">No, they are about the SAME</ion-radio>
+			  <ion-radio ng-model="choice.sympChoice" ng-value="'Better'">Yes, they are much BETTER</ion-radio>
+			  <ion-radio ng-model="choice.sympChoice" ng-value="'Worse'">Yes, they are much WORSE</ion-radio>
+			  <ion-radio ng-model="choice.sympChoice" ng-value="'Same'">No, they are about the SAME</ion-radio>
 			</ion-list>
 			<button class="button button-positive"
-		    		ng-disabled="!selections.choice[$index]"
+		    		ng-disabled="!choice.sympChoice"
+		    		ng-click="nextView();scrollTop();" >Continue</button>
+		</ion-item>
+	</div>
+
+	<!-- Transition Page -->
+	<div class="list card transition {{ (activeSection === 5) ? 'active' : 'inactive' }}" >
+
+	 	<div class="item item-avatar item-text-wrap">
+	    	<img ng-src="templates/Sciatica.jpg">
+	    	<h2>Continue Movement Assessment</h2>
+	  	</div>
+		<ion-item class="item-text-wrap">
+	  		
+			
+	  		<p>
+		      Based on your response to this movement we will continue the assessment to help us determine the best movement strategy for your condition.  We will ask you to either perform the same movement or a different movement to help us further understand your problem.
+		    </p>
+
+		    <button class="button button-positive"
 		    		ng-click="" >Continue</button>
 		</ion-item>
 	</div>
 
-
 </ion-content>
 
 <ion-footer-bar class="bar bar-positive">
-        <div class="title">&#169;2016 YouCare Mobile, {{centValues}}, {{sum}}, {{isChecked.value}}</div>
+        <div class="title">&#169;2016 YouCare Mobile, {{postCentValues}}, {{postCentSum}}, {{choice.mechChoice}}</div>
     </ion-footer-bar>
 </ion-view>

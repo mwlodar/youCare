@@ -137,6 +137,8 @@ body {
 
 /*Lumbar Assessment View*/
 
+
+
  #lumbarAssessment h2 {
   font-size: 1.5em;
 }
@@ -145,16 +147,21 @@ body {
   font-size: 1.1em;
 }
 
+#lumbarAssessment .button {
+  margin-top: 15px;
+}
+
 #lumbarAssessment {
   background-color: #D0D0D0;
+  margin-top: 20px;
 }
 
 #lumbarAssessment .video-container {
     position: relative;
-    padding-bottom: 56.25%;
+    padding-bottom: 75.25%;
     padding-top: 30px; height: 0; overflow: hidden;
     margin-top: 10px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
 }
  
 #lumbarAssessment .video-container iframe, .video-container object, .video-container embed {
@@ -170,6 +177,17 @@ body {
 
 }
 #lumbarAssessment label {display: block;}
+
+#lumbarAssessment .inactive, #lumbarAssessment .intro.disable-user-behavior.inactive{
+  transition: left 1s ease-in-out;
+  left: 9500px;
+  position: absolute;
+}
+#lumbarAssessment .active {
+  transition: left 1s ease-in-out;
+  left: 1px;
+  position: absolute;
+}
 
 
 
